@@ -2,14 +2,29 @@
 
 app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/data-manager/member");
+        $urlRouterProvider.otherwise("/editor");
 
-        // 概况
+        // 编辑器
         $stateProvider.state('editor',{
             url: '/editor',
             templateUrl: 'assets/view/editor.html',
             controller: 'editor'     
         });
+
+        // 列表
+        $stateProvider.state('list',{
+            url: '/list',
+            templateUrl: 'assets/view/list.html',
+            controller: 'list'     
+        });
+
+        // 编辑器
+        $stateProvider.state('about',{
+            url: '/about',
+            templateUrl: 'assets/view/about.html',
+            controller: 'about'     
+        });
+
     }
 ]);
 // 简单图片选择控件
