@@ -1,0 +1,155 @@
+﻿.component-setting>* {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: 4px;
+    background:#ddd;
+    &:hover{
+    	background-color: #00b6eb;
+    	color:#fff;
+    }
+    cursor: pointer;
+}
+.component-setting {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    height: 16px;
+    width: 60px;
+}
+.component-scale-xy-top:after
+{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: sw-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}
+.component-scale-xy-top:before
+{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: nw-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}
+.component-scale-xy-bottom:after
+{
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: nw-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}
+.component-scale-xy-bottom:before
+{
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: sw-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}
+.component-scale-y:after
+{
+    position: absolute;
+    bottom: -5px;
+    left: calc(50% - 4px);
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: n-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}
+.component-scale-y:before
+{
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 4px);
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: n-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}
+.component-scale-x:after
+{
+    position: absolute;
+    top: calc(50% - 4px);
+    right: -5px;
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: w-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}
+.component-scale-x:before
+{
+    position: absolute;
+    top: calc(50% - 4px);
+    left: -5px;
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    content: ' ';
+    cursor: w-resize;
+
+    border-radius: 50%;
+    background-color: #888;
+}

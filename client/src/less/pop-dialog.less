@@ -1,0 +1,42 @@
+.pop-dialog{
+    position: fixed;
+    left: 120px;
+    right: 120px;
+    top: 180px;
+    background: #fff;
+    bottom: 0;
+    z-index: 9;
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    padding: 30px 30px 0;
+    transition: all .3s;
+    transform: scale(.7) translateY(130%);
+    &.active{
+        transform: scale(1);
+    }
+}
+
+.img-list{
+    margin-left: -20px;
+    padding: 20px 10px;
+    overflow: auto;
+    li{
+        width: 150px;
+        height: 150px;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all .3s;
+        background-size: 100%;
+        float: left;
+        margin-left: 20px;
+        // display: inline-block;
+        border:1px solid #eee;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+        &:hover{
+            background-size: 120%;
+            border:1px solid #09f;
+            transform: translateY(-10px);
+        }
+    }
+}

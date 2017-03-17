@@ -1,0 +1,22 @@
+﻿<% 
+	for(var i=0; i<pages.length; i++) { 
+		var page = pages[i]; 
+%>
+	<div class="page" id="<%= page.id %>">
+	<% 
+		for(var j=0; j<page.components.length; j++) { 
+			var conmponent = page.components[j];
+	%>
+			<div  class="component-<%= conmponent.type %> <%- conmponent.animations.length==0 ? 'component-no-animate' : '' -%>"
+				id="<%= conmponent.id %>" style="
+				left:<%= conmponent.x %>px;
+				top:<%= conmponent.y %>px;
+				transform:rotate(<%= conmponent.rotate %>deg);
+				height:<%= conmponent.height %>px;
+				width:<%= conmponent.width %>px;
+				z-index:<%= conmponent.zIndex %>;
+				background:<%= conmponent.background %>;"
+				><%- conmponent.html -%></div>
+	<% } %>
+	</div>
+<% } %>

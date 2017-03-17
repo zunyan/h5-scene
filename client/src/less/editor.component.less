@@ -1,0 +1,70 @@
+﻿@import 'editor.component.setting.less';
+.component-box
+{
+    position: absolute;
+    left: 50px;
+
+    display: block;
+    display: block;
+
+    width: 100px;
+    height: 100px;
+
+    transform-origin: center;
+
+    border: 1px dashed transparent;
+    background-color: transparent;
+    & > *
+    {
+        display: block;
+
+        height: 100%;
+    }
+    &:after
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        content: ' ';
+		transition: all .3s;
+
+    }
+    &.active
+    {
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+
+        border-color: #aaa;
+
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+    }
+    &:hover:after{
+		background-color: rgba(134,213,253,0.2);
+    }
+    &.focus
+    {
+        border-color: #aaa;
+    }
+    .component-tool
+    {
+        display: none;
+
+        height: 0;
+    }
+    &.active .component-tool
+    {
+        display: block;
+    }
+}
+
+component-img img
+{
+    width: 100%;
+    height: 100%;
+}

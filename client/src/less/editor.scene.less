@@ -1,0 +1,88 @@
+﻿.editor-scene
+{
+    display: block;
+    overflow: auto;
+
+    height: 100%;
+    margin-left: 180px;
+    position: relative;
+
+    background-color: #eee;
+    .editor-scene-phone
+    {
+        position: relative;
+        display: block;
+        width: 414px;
+        height: 736px;
+        margin: 40px auto;
+
+        background-color: #fff;
+        box-shadow: 0 0 10px #ddd;
+    }
+    .editor-scene-tool
+    {   
+        z-index: 1;
+        position: fixed;
+        top: 70px;
+        left: 160;
+
+        width: 45px;
+
+        background-color: #fff;
+        box-shadow: 1px 0 3px #ddd;
+
+        small{
+            display: block;
+            padding: 5px;
+            color:#aaa;
+            background-color: #f5f5f5;
+        }
+
+        li{
+            cursor: pointer;
+            transition: all .3s;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: #00b6eb;
+            font-size: 18px;
+            &:hover{
+                color: #fff;
+                background-color: #00b6eb;
+            }
+        }
+    }
+
+    .editor-scene-scale{
+        z-index: 1;
+        position: fixed;
+        bottom: 10px;
+        right: 270px;
+
+        background-color: #fff;
+        box-shadow: 1px 0 3px #ddd;
+
+        small{
+            display: block;
+            padding: 5px;
+            color:#aaa;
+            background-color: #f5f5f5;
+        }
+
+        li{
+            cursor: pointer;
+            transition: all .3s;
+            height: 45px;
+            width: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: #00b6eb;
+            font-size: 18px;
+            float: left;
+            &:hover{
+                color: #fff;
+                background-color: #00b6eb;
+            }
+        }       
+    }
+}

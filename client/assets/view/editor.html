@@ -1,0 +1,247 @@
+﻿<div class="editor-tool">
+	<div class="editor-tool-log">H5 SCEME V0.1</div>
+	<div class="editor-tool-action"></div>
+	<div class="editor-tool-module">
+		<button ng-click="generate()">生成</button>
+	</div>
+</div>
+<div class="editor-content">
+	<div class="editor-pages">
+		<div class="editor-pages-list">
+			<div class="editor-page" ng-class="{'active':page.id == activePage.id}" ng-repeat="page in stage.pages" ng-click="makePageActive(page)">
+				<div class="editor-page-title" ng-bind="page.name"></div>
+				<div class="editor-page-content"></div>
+			</div>
+		</div>
+		<div class="editor-pages-add" ng-click="addPage()">
+  			<span class="uicon-plus"></span> 添加
+		</div>
+	</div>
+	<div class="editor-setting">
+		<div ng-if="activedComponent" ng-init="tab=1">
+			<div class="editor-setting-tab">
+				<a ng-class="{'cur':tab==1}" ng-click="tab=1">外观</a>
+				<a ng-class="{'cur':tab==2}" ng-click="tab=2">动画</a>
+				<a ng-class="{'cur':tab==3}" ng-click="tab=3">触发</a>
+			</div>
+			<div class="editor-setting-tabox">
+				<div ng-if="tab==1">
+					<div class="form-group">
+						<label>水平坐标：</label>
+						<div class="form-content">
+							<input type="number"
+								ng-model="activedComponent.x" 
+								ng-change="onChange('x')"></div>
+					</div>
+					<div class="form-group">
+						<label>垂直坐标：</label>
+						<div class="form-content">
+							<input type="number"
+								ng-model="activedComponent.y" 
+								ng-change="onChange('y')"></div>
+					</div>
+					<div class="form-group">
+						<label>宽度：</label>
+						<div class="form-content">
+							<input type="number"
+								ng-model="activedComponent.width" 
+								ng-change="onChange('width')"></div>
+					</div>
+					<div class="form-group">
+						<label>高度：</label>
+						<div class="form-content">
+							<input type="number"
+								ng-model="activedComponent.height" 
+								ng-change="onChange('height')"></div>
+					</div>
+					<div class="form-group">
+						<label>旋转角度：</label>
+						<div class="form-content">
+							<input type="number"
+								ng-model="activedComponent.rotate" 
+								ng-change="onChange('rotate')"></div>
+					</div>
+					<div class="form-group">
+						<label>透明度：</label>
+						<div class="form-content">
+							<input type="number"
+								ng-model="activedComponent.opacity" 
+								ng-change="onChange('opacity')"></div>
+					</div>
+				</div>
+				<ul ng-if="tab==2">
+
+					<li ng-repeat="animation in activedComponent.animations" class="animation">
+						<div class="animation-title" ng-bind="'动画'+$index"></div>
+						<div class="animation-del"></div>
+						<div class="animation-setting">
+							<div class="form-group">
+								<label>动画类型：</label>
+								<div class="form-content">
+									<select class="i-select" 
+										ng-model="animation.name"
+										ng-change="setAnimations(animation)">
+										<option value="none">none</option>
+										<optgroup label="Attention Seekers">
+											<option value="bounce">bounce</option>
+											<option value="flash">flash</option>
+											<option value="pulse">pulse</option>
+											<option value="rubberBand">rubberBand</option>
+											<option value="shake">shake</option>
+											<option value="swing">swing</option>
+											<option value="tada">tada</option>
+											<option value="wobble">wobble</option>
+										</optgroup>
+										<optgroup label="Bouncing Entrances">
+											<option value="bounceIn">bounceIn</option>
+											<option value="bounceInDown">bounceInDown</option>
+											<option value="bounceInLeft">bounceInLeft</option>
+											<option value="bounceInRight">bounceInRight</option>
+											<option value="bounceInUp">bounceInUp</option>
+										</optgroup>
+										<optgroup label="Bouncing Exits">
+											<option value="bounceOut">bounceOut</option>
+											<option value="bounceOutDown">bounceOutDown</option>
+											<option value="bounceOutLeft">bounceOutLeft</option>
+											<option value="bounceOutRight">bounceOutRight</option>
+											<option value="bounceOutUp">bounceOutUp</option>
+										</optgroup>
+										<optgroup label="Fading Entrances">
+											<option value="fadeIn">fadeIn</option>
+											<option value="fadeInDown">fadeInDown</option>
+											<option value="fadeInDownBig">fadeInDownBig</option>
+											<option value="fadeInLeft">fadeInLeft</option>
+											<option value="fadeInLeftBig">fadeInLeftBig</option>
+											<option value="fadeInRight">fadeInRight</option>
+											<option value="fadeInRightBig">fadeInRightBig</option>
+											<option value="fadeInUp">fadeInUp</option>
+											<option value="fadeInUpBig">fadeInUpBig</option>
+										</optgroup>
+										<optgroup label="Fading Exits">
+											<option value="fadeOut">fadeOut</option>
+											<option value="fadeOutDown">fadeOutDown</option>
+											<option value="fadeOutDownBig">fadeOutDownBig</option>
+											<option value="fadeOutLeft">fadeOutLeft</option>
+											<option value="fadeOutLeftBig">fadeOutLeftBig</option>
+											<option value="fadeOutRight">fadeOutRight</option>
+											<option value="fadeOutRightBig">fadeOutRightBig</option>
+											<option value="fadeOutUp">fadeOutUp</option>
+											<option value="fadeOutUpBig">fadeOutUpBig</option>
+										</optgroup>
+										<optgroup label="Flippers">
+											<option value="flip">flip</option>
+											<option value="flipInX">flipInX</option>
+											<option value="flipInY">flipInY</option>
+											<option value="flipOutX">flipOutX</option>
+											<option value="flipOutY">flipOutY</option>
+										</optgroup>
+										<optgroup label="Lightspeed">
+											<option value="lightSpeedIn">lightSpeedIn</option>
+											<option value="lightSpeedOut">lightSpeedOut</option>
+										</optgroup>
+										<optgroup label="Rotating Entrances">
+											<option value="rotateIn">rotateIn</option>
+											<option value="rotateInDownLeft">rotateInDownLeft</option>
+											<option value="rotateInDownRight">rotateInDownRight</option>
+											<option value="rotateInUpLeft">rotateInUpLeft</option>
+											<option value="rotateInUpRight">rotateInUpRight</option>
+										</optgroup>
+										<optgroup label="Rotating Exits">
+											<option value="rotateOut">rotateOut</option>
+											<option value="rotateOutDownLeft">rotateOutDownLeft</option>
+											<option value="rotateOutDownRight">rotateOutDownRight</option>
+											<option value="rotateOutUpLeft">rotateOutUpLeft</option>
+											<option value="rotateOutUpRight">rotateOutUpRight</option>
+										</optgroup>
+										<optgroup label="Specials">
+											<option value="hinge">hinge</option>
+											<option value="rollIn">rollIn</option>
+											<option value="rollOut">rollOut</option>
+										</optgroup>
+										<optgroup label="Zoom Entrances">
+											<option value="zoomIn">zoomIn</option>
+											<option value="zoomInDown">zoomInDown</option>
+											<option value="zoomInLeft">zoomInLeft</option>
+											<option value="zoomInRight">zoomInRight</option>
+											<option value="zoomInUp">zoomInUp</option>
+										</optgroup>
+										<optgroup label="Zoom Exits">
+											<option value="zoomOut">zoomOut</option>
+											<option value="zoomOutDown">zoomOutDown</option>
+											<option value="zoomOutLeft">zoomOutLeft</option>
+											<option value="zoomOutRight">zoomOutRight</option>
+											<option value="zoomOutUp">zoomOutUp</option>
+										</optgroup>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>延时：</label>
+								<div class="form-content">
+									<input type="text" class="text"  datatype="DOUBLE2" 
+										ng-model="animation.delay" 
+										ng-change="onChange('delay')"></div>
+							</div>
+							<div class="form-group">
+								<label>持续时长：</label>
+								<div class="form-content">
+									<input type="text" class="text" datatype="DOUBLE2" 
+										ng-model="animation.duration" 
+										ng-change="onChange('duration')"></div>
+							</div>
+							<div class="form-group">
+								<label>播放次数：</label>
+								<div class="form-content">
+									<select class="i-select" ng-model="animation.iterationCount" ng-change="onChange('iterationCount')">
+										<option value="1">1次</option>
+										<option value="2">2次</option>
+										<option value="3">3次</option>
+										<option value="4">4次</option>
+										<option value="5">5次</option>
+										<option value="6">6次</option>
+										<option value="7">7次</option>
+										<option value="8">8次</option>
+										<option value="9">9次</option>
+										<option value="infinite">永不停止</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+					</li>
+					<li>
+						<button ng-click="addAnimation()">+ 添加动画</button>
+						<button ng-click="play()" ng-if="activedComponent.animations.length>0">播放</button>
+					</li>
+				</ul>
+				<ul ng-if="tab==3">
+					，，，
+				</ul>
+			</div>
+		</div>
+	</div>
+	<stage class="editor-scene">
+		<div class="editor-scene-phone">
+			<legend-component ng-repeat="component in activePage.components" component="component" ng-class="{'active': component.id == activedComponent.id}"></legend-component>
+		</div>
+		<div class="editor-scene-tool">
+			<small>insert</small>
+			<ul>
+				<li ng-click="addComponent('componentImg')" title="picture">
+					<span class="uicon-picture"></span>
+				</li>
+				<li ng-click="addComponent('componentTxt')" title="text">
+					<span class="uicon-doc-text"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="editor-scene-scale">
+			<ul>
+				<li ng-click="playPage()" title="picture">
+					<span class="uicon-play"></span>
+				</li>
+			</ul>
+		</div>
+	</stage>
+</div>
+

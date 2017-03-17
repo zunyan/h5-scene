@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<style><%- include('./css/animate.min.css') %></style>
+	<style><%- include('./css/base.css') %></style>
+	<script type="text/javascript" src="http://enbrands.oss-cn-shenzhen.aliyuncs.com/Utint/jquery.min.js"></script>
+</head>
+<body class='loading'>
+	<div id="loadstatus">
+		loading...
+	</div>
+	<div id="stage">
+		<%- include('stage.page.ejs') %>
+	</div>
+</body>
+<script type="text/javascript"><%- include('./js/h5-scene-render.js') %></script>
+<script type="text/javascript">var animations=<%- JSON.stringify(pages) %>;</script>
+<script type="text/javascript">$(function(){$(document.body).render(animations);});</script>
+</html>

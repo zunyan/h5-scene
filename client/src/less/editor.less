@@ -1,0 +1,79 @@
+﻿html,
+.editor,
+.view
+{
+    height: 100%;
+    background-color: #f5f5f5;
+    
+}
+.editor-tool
+{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 40px;
+
+    background-color: #fff;
+    box-shadow: 0 0 5px #ddd;
+    line-height: 40px;
+    
+}
+.editor-tool-log
+{
+    float: left;
+    width: 180px;
+    text-align: center;
+}
+.editor-tool-action
+{
+    float: right;
+
+    width: 320px;
+    height: 40px;
+}
+.editor-tool-module
+{
+    margin-right: 320px;
+    margin-left: 160px;
+}
+.editor-content
+{
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+// 左侧pages list
+@import 'editor.pages.less';
+// 中部舞台
+@import 'editor.scene.less';
+// 右侧设置
+@import 'editor.setting.less';
+// 组件相关
+@import 'editor.component.less';
+// 对话框
+@import 'pop-dialog';
+button{
+    height: 25px;
+    background: #09f;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 0 8px;
+    outline-color:#09f;
+
+    &:hover{
+        background-color: lighten(#09f, 5%);
+    }
+
+    &:active{
+        box-shadow: 0 2px 3px 3px rgba(0,0,0,.2) inset;
+        outline: none;
+    }
+}
