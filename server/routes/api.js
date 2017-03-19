@@ -7,7 +7,7 @@ var router = express.Router();
 
 var fs = require("fs");
 var path = require("path");
-var ejs = require("ejs");
+var h5Linker = require("h5Linker");
 
 /**
  * 预览
@@ -16,8 +16,7 @@ var index = 0;
 router.post('/generatePageToPreview.do', function(req, res) {
 
 	res.header("Content-Type", "application/json; charset=utf-8");
-	var file = fs.readFileSync(path.resolve(__dirname, '../template/stage.ejs')).toString();
-	var out = ejs.render(file, req.body, {filename: path.resolve(__dirname, '../template/stage.ejs')});
+	var out = h5Linker(req.body);
 	var newFileName = req.body.url || ("cache/" + (+new Date()) + index + ".html");
 	fs.writeFileSync(newFileName, out);
 	res.end(JSON.stringify({
