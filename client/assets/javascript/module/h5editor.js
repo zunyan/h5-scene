@@ -163,8 +163,14 @@ Component.prototype.onChange = function(prop) {
     }
 };
 Component.prototype.$showAnimation = function(animation) {
+    if(!isNaN(animation.duration)){
+        this.$elep.css('animation-duration', animation.duration + 's');
+        this.$elep.css('-webkit-animation-durationuration', animation.duration + 's');
+    }
     this.$elep.addClass(animation.name + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $(this).removeClass(animation.name + ' animated');
+        // $(this).css('animateDuration', '.5s');
+        // $(this).css('webkitAnimateDuration', '.5s');
     });
 };
 Component.prototype.format = function(){

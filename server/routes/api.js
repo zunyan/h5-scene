@@ -7,7 +7,7 @@ var router = express.Router();
 
 var fs = require("fs");
 var path = require("path");
-var h5Linker = require("h5Linker");
+var h5Linker = require("../lib/h5Linker");
 
 /**
  * 预览

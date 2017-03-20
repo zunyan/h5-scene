@@ -16,6 +16,6 @@
 </body>
 <script><%- include('./js/zepto.min.js') %></script>
 <script type="text/javascript"><%- include('./js/h5-scene-render.min.js') %></script>
-<script type="text/javascript">var animations=<%- JSON.stringify(pages) %>;</script>
-<script type="text/javascript">$(function(){$(document.body).render(animations);});</script>
+<script type="text/javascript">var pages=<%- JSON.stringify(pages) %>;</script>
+<script type="text/javascript">$(function(){$(document.body).render(pages);});</script>
 </html>
