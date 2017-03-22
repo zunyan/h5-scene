@@ -6,7 +6,8 @@
     "port": "8099"
   },
   "scripts": {
-    "start": "node ./server/bin/www"
+    "start": "forever start -a -l ./h5scene.log -o ./out.log -e ./err.log  ./server/bin/www",
+    "debug": "node ./server/bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.2",

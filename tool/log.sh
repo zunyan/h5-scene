@@ -1,0 +1,1 @@
+tail -f /root/.forever/h5scene.log
