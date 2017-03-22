@@ -2,7 +2,7 @@
     echo "stop server"
     forever stop ../server/bin/www
     echo "killl process"
-    ps -ef|grep crawler|grep -v grep|cut -c 9-15|xargs kill -9
+    ps -ef|grep h5-scene|grep -v grep|cut -c 9-15|xargs kill -9
 } || { # catch
     # save log for exception 
     echo "err"
@@ -13,11 +13,7 @@ if [ "$1" = "-dev" ]; then
 
     npm run debug
 
-elif [ "$1" = "-sim" ]; then
-
-    npm run sim-forever
-
-elif [ "$1" = "-pro" ]; then
+elif [ "$1" = "-prod" ]; then
 
     npm start
 else
@@ -28,8 +24,7 @@ else
 
     echo "ACTION:"
     echo "  -dev: start server in dev-env"
-    echo "  -sim: start server in sim-env"
-    echo "  -pro: start server in pro-env"
+    echo "  -pro: start server in prod-env"
     echo ""
     
     echo "etc: sh start.sh -dev"
