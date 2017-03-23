@@ -24,7 +24,7 @@ else
 
     echo "ACTION:"
     echo "  -dev: start server in dev-env"
-    echo "  -pro: start server in prod-env"
+    echo "  -prod: start server in prod-env"
     echo ""
     
     echo "etc: sh start.sh -dev"
